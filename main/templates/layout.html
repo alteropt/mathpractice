@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	{% block links %}{% endblock %}
+</head>
+<body>
+	<aside>
+		<a class="logo" href="{% url 'home' %}">
+			<img src="{% static 'main/img/MathPracticeLogo.png' %}" alt="logo">	
+		</a>
+
+		<div class="burger-menu" onclick="openMenu()">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+		<nav class="navigation">
+			<ul>
+				<a href="{% url 'home' %}"><li>Главная</li></a>
+				<a href="{% url 'tasks_home' %}"><li>Задачи</li></a>
+				{% if user.is_authenticated %}
+					<a href="{% url 'logout' %}"><li>Выход</li></a>
+				{% else %}
+					<a href="{% url 'register' %}"><li>Регистрация</li></a>
+					<a href="{% url 'login' %}"><li>Вход</li></a>
+				{% endif %}
+			</ul>
+		</nav>
+	</aside>
+	
+	<main>
+		<div class="main">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		function openMenu() {
+			document.querySelector('aside').classList.toggle('active');
+		}
+
+		$(document).mouseup(function(event) { 
+			var div = $("aside"); 
+			if (!div.is(event.target) && div.has(event.target).length === 0 && !$('.burger-menu').is(event.target)) {
+				div.removeClass('active');
+				$('.burger-menu').removeClass('active'); 
+			};
+		});
+	</script>
+</body>
+</html>

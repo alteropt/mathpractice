@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}{{ task.title }}{% endblock %}
+
+{% block links %}<link rel="stylesheet" href="{% static 'tasks/css/tasks_home.css' %}">{% endblock %}
+
+{% block content %}
+	<div class="task_detail">
+		<h1>{{ task.title }}</h1>
+		<b><p>Автор: {{ task.author }}</p></b>
+		<p>{{ task.task }}</p>
+		{% if request.user == task.author %}
+			<a href="{% url 'task-update' task.type.name task.id %}" class="edit-task">Редактировать</a>
+			<a href="{% url 'task-delete' task.type.name task.id %}" class="delete-task">Удалить</a>
+		{% endif %}
+		<small class="date">{{ task.updated_date }}</small>
+	</div>
+	<p class="comment-title">Комментарии ({{ task.comments_tasks.all.count }})</p>
+	{% for comment in task.comments_tasks.all %}
+		<div class="comment">
+			<p>Дата создания: {{ comment.created_date }}</p>
+			<p>Автор: {{ comment.author }}</p>
+			<p>{{ comment.text }}</p>
+		</div>
+	{% endfor %}	
+	<hr>
+	{% if request.user.is_authenticated %}
+		<p>Добавить комментарий</p>
+		<form action="" method="POST">
+			{% csrf_token %}
+			{{ form.text }}
+			<button type="submit" class="add-comment">Добавить комментарий</button>
+		</form>
+
+		{% else %}
+		<p>Зарегистрируйтесь, чтобы добавить комментарий</p>
+	{% endif %}
+{% endblock %}

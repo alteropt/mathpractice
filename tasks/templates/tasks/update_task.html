@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Редактирование задачи{% endblock %}
+
+{% block links %}<link rel="stylesheet" href="{% static 'tasks/css/tasks_home.css' %}">{% endblock %}
+
+{% block content %}
+	<h1>Редактирование задачи</h1>
+
+	<form method="post">
+		{% csrf_token %}
+		{{ form.title }}<br>
+		{{ form.task }}<br>
+		<div class="select-type">
+			<div>Выберите категорию задачи:</div>
+			{{ form.type }}
+		</div>
+		<button type="submit" class="form-input" tabindex="4"><a class="add-task">Редактировать</a></button>
+	</form>
+{% endblock %}
+

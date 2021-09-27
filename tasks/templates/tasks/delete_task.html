@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Удалить задачу{% endblock %}
+
+{% block links %}<link rel="stylesheet" href="{% static 'tasks/css/tasks_home.css' %}">{% endblock %}
+
+{% block content %}
+	<form method="post">
+		{% csrf_token %}
+		<h1>Вы действительно хотите удалить задачу?</h1>
+		<button type="submit" class="form-input"><a class="add-task">Да, удалить</a></button>
+	</form>
+{% endblock %}
+

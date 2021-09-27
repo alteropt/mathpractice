@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block links %}<link rel="stylesheet" href="{% static 'tasks/css/tasks_home.css' %}">{% endblock %}
+
+{% block content %}
+	<h1>Задачи</h1>
+
+	{% if tasks %}
+		{% for element in tasks %}
+			<a class="task" href="{% url 'task-detail' type_id element.id %}">
+				<h2>{{ element.title }}</h2>
+			</a>
+		{% endfor %}
+		<p class="quetion">Хотите добавить задачу?</p>
+		<a href="{% url 'create' %}" class="add-task">Добавить задачу</a>
+
+	{% else %}
+		<p class="warning">Задач пока что нет задач!</p>
+		<p class="quetion">Хотите добавить задачу?</p>
+		<a href="{% url 'create' %}" class="add-task">Добавить задачу</a>
+	{% endif %}
+
+{% endblock %}

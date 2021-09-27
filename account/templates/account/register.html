@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block links %}<link rel="stylesheet" href="{% static 'account/css/login.css' %}">{% endblock %}
+
+{% block content %}
+	<h1 class="title">Регистрация</h1>
+	<form method="POST" action="{% url 'register' %}">
+		{% csrf_token %}
+		<span>Имя пользователя: </span><div class="login reg">{{ form.username }}</div>
+		<span>Пароль: </span><div class="login reg">{{ form.password1 }}</div>
+		<span>Повторите пароль: </span><div class="login reg">{{ form.password2 }}</div>
+		<p>
+		{% if form.errors %}
+		    {% for error in form.errors %} 
+		    	{% if error == 'username' %}
+		    		<p>Ошибка в вводе имени пользователя!</p>
+		    	{% elif error == 'password2' %}
+		    		<p>Ошибка в вводе пароля!</p>
+		    	{% endif %}
+			{% endfor %}
+		{% endif %}  
+		</p>
+		<button type="submit" class="login">Зарегестрироваться</button>
+	</form>
+{% endblock %} 

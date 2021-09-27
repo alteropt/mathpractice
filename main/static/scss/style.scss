@@ -1,0 +1,183 @@
+// Vars
+$bgColor: #54436b;
+$mainColor: #50cb93;
+$secondaryColor: #71efa3;
+$activeColor: #acffad;
+
+$height: 1.4em;
+$width: 5em;
+
+// Normalize
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: $mainColor;
+	background: $bgColor;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;}
+
+a {
+	text-decoration: none;
+	color: $mainColor;
+}
+
+ul li {
+	list-style: none;
+}
+
+input {
+	outline: none;
+}
+
+// aside
+aside {
+	float: left;
+	width: 25%;
+	padding: 2%;
+	height: 100vh;
+	border-right: 5px solid $secondaryColor;
+	position: fixed;
+	background: darken($bgColor, 6%);
+	transition: left .3s linear;
+
+	.logo {
+		margin-bottom: 50px;
+		width: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+
+		img {
+			float: left;
+			width: 80px;
+			height: auto;
+			max-width: 100%;
+			margin: 0 auto;
+		}
+	}
+
+	h2 {
+		display: block;
+		font-size: 28px;
+		text-align: center;
+		margin-bottom: 25px;
+	}
+	nav {
+		ul {
+			padding-inline-start: 0;
+			a {
+				li {
+					font-size: 20px;
+					margin-bottom: 15px;
+					display: block;
+					transition: transform .2s linear,
+					color .2s linear;
+			
+					&:hover {
+						transform: scale(1.05);
+						color: $activeColor;
+					}
+				}
+			}
+		}
+	}
+}
+
+main {
+	position: absolute;
+	left: 29%;
+	margin: 10px auto 0;
+	width: 70%;
+
+	.main {
+		text-align: center;
+	}
+}
+
+a.add-task {
+	border: 1px solid $mainColor;
+	background: transparent;
+	border-radius: 10px;
+	padding: 13px;
+	transition: color .2s linear,
+	background .2s linear;
+
+	&:hover {
+		color: $activeColor;
+		background: $mainColor;
+  }
+}
+
+.burger-menu {
+	position: absolute;
+	right: -53px;
+	bottom: 10px;
+	background: $secondaryColor;
+	padding: 7px;
+	cursor: pointer;
+	border-radius: 13px;
+	transition: background .2s linear;
+	z-index: 1000;
+	display: none;
+
+	span {
+		display: block;
+		width: 25px;
+		height: 4px;
+		background: $bgColor;
+		margin: 4px 0;
+	}
+
+	&:hover {
+		background: $activeColor;
+	}
+}
+
+@media(max-width: 767px) {
+	aside {
+		left: -34.5%;
+		z-index: 100;
+		background: $bgColor;
+		width: 35%;
+	}
+
+	aside.active {
+		left: 0;
+	}
+
+	main {
+		left: 15%;
+	}
+
+	.burger-menu {
+		display: block;
+	}
+}
+
+@media(max-width: 400px) {
+	aside {
+		nav {
+			ul {
+				a {
+					li {
+						font-size: 17px;
+					}
+				}
+			}
+		}
+	}	
+}
+
+
+
+

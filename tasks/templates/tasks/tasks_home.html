@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block links %}<link rel="stylesheet" href="{% static 'tasks/css/tasks_home.css' %}">{% endblock %}
+
+{% block content %}
+	<h1>Категории задач</h1>
+
+	{% for element in type %}
+		<a class="task" href="{% url 'type' element.id %}">
+			<h2>{{ element.name }}</h2>
+		</a>
+	{% endfor %}
+{% endblock %}
