@@ -1,0 +1,112 @@
+// Vars
+$bgColor: #54436b;
+$mainColor: #50cb93;
+$secondaryColor: #71efa3;
+$activeColor: #acffad;
+
+.title {
+	margin-bottom: 20px;
+}
+
+.login {
+	h1 {
+		font-size: 40px;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+
+	input {
+		display: block;
+		width: 450px;
+		height: 50px;
+		background: transparent;
+		outline: none;
+		border: 1px solid $mainColor;
+		margin: 0 auto;
+		margin-bottom: 30px;
+		border-radius: 20px;
+		padding: 15px;
+		color: $mainColor;
+		font-size: 16px;
+		transition: width .2s linear,
+		border .2s linear;
+
+		&:focus {
+			width: 500px;
+			border: 1px solid $activeColor;
+		}
+	}
+
+	button {
+		margin: 0 auto;
+		display: block;
+		width: 160px;
+		height: 40px;
+		cursor: pointer;
+		outline: none;
+		background: transparent;
+		border: 1px solid $mainColor;
+		color: $mainColor;
+		border-radius: 20px;
+		transition: border .2s linear,
+		background .2s linear;
+
+		&:focus {
+			border: 1px solid $activeColor;
+		}
+
+		&:hover {
+			background: $activeColor;
+		}
+	}
+}
+
+button.login {
+	margin: 0 auto;
+	display: block;
+	width: 160px;
+	height: 40px;
+	cursor: pointer;
+	outline: none;
+	background: transparent;
+	border: 1px solid $mainColor;
+	color: $mainColor;
+	border-radius: 20px;
+	transition: border .2s linear,
+	background .2s linear;
+
+	&:focus {
+		border: 1px solid $activeColor;
+	}
+
+	&:hover {
+		background: $activeColor;
+	}
+}
+
+@media(max-width: 767px) {
+	.login {
+		input {
+			width: 300px;
+
+			&:focus {
+				width: 350px;
+			}
+		}
+	}
+}
+
+@media(max-width: 575px) {
+	.login {
+		input {
+			width: 200px;
+
+			&:focus {
+				width: 250px;
+			}
+		}
+	}
+}
+
+
+

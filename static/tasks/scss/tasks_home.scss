@@ -1,0 +1,238 @@
+// Vars
+$bgColor: #54436b;
+$mainColor: #50cb93;
+$secondaryColor: #71efa3;
+$activeColor: #acffad;
+
+h1 {
+	text-align: center;
+	margin: 20px auto 15px;
+}
+
+.task {
+	display: block;
+	background: lighten($secondaryColor, 15%);
+	width: 50%;
+	margin: 20px auto;
+	padding: 15px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: transform .3s ease-in-out;
+	margin-bottom: 20px;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	h2 {
+		text-align: center;
+	}
+}
+
+p.warning,
+p.quetion {
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 35px;
+}
+
+p.quetion {
+	font-size: 16px;
+	margin-top: 40px;
+	color: lighten($mainColor, 10%)
+}
+
+form {
+	text-align: center;
+
+	.form-input {
+		width: 100%;
+		max-width: 50%;
+		height: 50px;
+		background: transparent;
+		border: 1px solid $mainColor;
+		outline: none;
+		border-radius: 30px;
+		margin-bottom: 20px;
+		color: $mainColor;
+		padding: 20px;
+
+		&:focus {
+			border-color: $activeColor;
+		}
+
+		&::placeholder {
+			color: $mainColor;
+			opacity: 0.7;
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			display: none;
+		}
+	}
+
+	textarea.form-input {
+		height: 100px;
+		min-height: 100px;
+		max-height: 300px;
+		min-width: 50%;
+	}
+
+	textarea.form-input.comment {
+		max-width: 70%;
+		min-width: 70%;
+		min-height: 150px;
+		max-height: 500px;
+		display: block;		
+		width: 100%;
+	}
+
+	button.form-input {
+		position: relative;
+		width: 0;
+		height: 0;
+		border: 0;
+
+		a {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		&:focus {
+			a {
+				border-color: $activeColor;	
+			}
+		}
+	}
+}
+
+.edit-task, .delete-task {
+	border: 1px solid $secondaryColor;
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	color: $activeColor;
+	font-size: 16px;
+	margin-top: 30px;
+	transition: background .2s linear;
+
+	&:hover {
+		background: darken($secondaryColor, 15%);
+	}
+}
+
+.delete-task:hover {
+	background: lighten(red, 5%);
+}
+
+.task_detail {
+	margin: 20px auto;
+	position: relative;
+	padding: 10px 30px 30px;
+	background: lighten($bgColor, 10%);
+
+	small.date {
+		position: absolute;
+		bottom: 5px;
+		right: 20px;
+	}
+}
+
+.select-type {
+	div {
+		font-size: 12px;
+		margin-bottom: 5px;
+	}
+
+	select {
+		width: 100%;
+		max-width: 40%;
+		height: 50px;
+		background: transparent;
+		outline: none;
+		border: 1px solid $mainColor;
+		border-radius: 30px;
+		color: $mainColor;
+		padding: 5px;
+		padding-left: 10px;
+	}
+}
+
+
+
+button.add-comment {
+	display: block;
+	border: 1px solid $secondaryColor;
+	padding: 10px 20px;
+	border-radius: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	color: $activeColor;
+	font-size: 16px;
+	transition: background .2s linear;
+	outline: none;
+	cursor: pointer;
+	background: transparent;
+
+	&:hover {
+		background: darken($secondaryColor, 15%);
+	}
+
+}
+
+.comment-title {
+	margin-top: 30px;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+
+.comment {
+	background: darken($bgColor, 3%);
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+button.add-task {
+	margin-top: 30px;
+	outline: none;
+	border: 1px solid $mainColor;
+	background: transparent;
+	border-radius: 10px;
+	transition: background .2s linear;
+	cursor: pointer;
+	padding: 13px;
+	color: $mainColor;
+
+	&:hover {
+		background: $activeColor;
+	}
+}
+
+@media(max-width: 767px) {
+	form {
+		.form-input {
+			max-width: 70%;
+		}
+	}
+}
+
+@media(max-width: 450px) {
+	h1 {
+		font-size: 20px
+	}
+	.task {
+		width: 70%;
+		h2 {
+			font-size: 18px;
+		}
+	}
+}
+
+
