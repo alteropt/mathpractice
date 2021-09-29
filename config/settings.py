@@ -26,7 +26,7 @@ SECRET_KEY = 'zfsx_$norqsy8$pdw85=@f)q*s2fmwldn@g$57t49hc!afhe1a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alteropt.pythonanywhere.com']
 
 
 # Application definition
