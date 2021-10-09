@@ -26,7 +26,7 @@ SECRET_KEY = 'zfsx_$norqsy8$pdw85=@f)q*s2fmwldn@g$57t49hc!afhe1a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mathpractice.pythonanywhere.com']
+ALLOWED_HOSTS = ['mathpractice.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -91,10 +91,10 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Asmera'
 
 USE_I18N = True
 
