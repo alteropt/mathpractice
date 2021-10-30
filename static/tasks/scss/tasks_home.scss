@@ -209,6 +209,7 @@ button.add-task {
 	cursor: pointer;
 	padding: 13px;
 	color: $mainColor;
+	margin-bottom: 20px;
 
 	&:hover {
 		background: $activeColor;

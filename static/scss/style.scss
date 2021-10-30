@@ -111,6 +111,10 @@ a.add-task {
 	padding: 13px;
 	transition: color .2s linear,
 	background .2s linear;
+	margin-bottom: 20px;
+	display: block;
+	width: 200px;
+	margin: -20px auto 20px;
 
 	&:hover {
 		color: $activeColor;
