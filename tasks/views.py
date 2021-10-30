@@ -74,26 +74,6 @@ class TasksDeleteView(LoginRequiredMixin, DeleteView):
 		self.object.delete()
 		return HttpResponseRedirect(success_url)
 
-'''
-@login_required(login_url = '/account/login/')
-def create_task(request):
-	error = ''
-	if request.method == 'POST':
-		form = TasksForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('/tasks')
-		else:
-			error = 'Форма заполнена неверно!'
-	form = TasksForm()
-
-	data = {
-		'title': 'Добавление задачи',
-		'form': form,
-	}
-	return render(request, 'tasks/create_task.html', data)
-'''
-
 class TaskCreateView(LoginRequiredMixin, CreateView):
 	login_url = reverse_lazy('login')
 	model = Tasks
