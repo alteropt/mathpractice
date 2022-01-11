@@ -4,9 +4,9 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = '...'
+SECRET_KEY = 'zfsx_$norqsy8$pdw85=@f)q*s2fmwldn@g$57t49hc!afhe1a'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['mathpractice.pythonanywhere.com', '127.0.0.1']
 
